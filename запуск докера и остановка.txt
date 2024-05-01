@@ -1,0 +1,48 @@
+docker compose up -d 
+docker compose down 
+
+Запустите тренажёр
+Чтобы выполнять практические задания, вы будете работать с Docker-тренажёром. Для его запуска пройдите несколько шагов:
+Скопируйте проект в директорию:
+git clone https://github.com/practicum-de/s5-lessons.git 
+Перейдите в директорию c проектом:
+cd s5-lessons 
+Создайте виртуальное окружение и активируйте его:
+python3 -m venv venv 
+или для Windows
+python -m venv venv 
+Проверить, что виртуальное окружение создано можно командой ls — в списке с файлов и директорий вы увидите директорию venv.
+Активируйте её:
+source venv/bin/activate 
+или в Windows
+source venv/Scripts/activate 
+или альтернативный способ для Windows
+.\\venv\\Scripts\\activate.bat 
+Обновите pip до последней версии:
+pip install --upgrade pip 
+Установите зависимости:
+pip install -r requirements.txt 
+Для запуска контейнера выполните команду:
+docker compose up -d 
+Перед запуском тестов убедитесь что запущен контейнер.
+Если у вас не установлен Python 3.8, то нужно это сделать.
+Параметры подключения к БД:
+  "host": "localhost",
+  "user": "jovyan",
+  "password": "jovyan"
+  "port": 15432,
+  "ssl": false,
+  "database": "de"
+ 
+Metabase доступен по адресу http://localhost:3333/.
+Для подключения с помощью Metabase к БД в контейнере укажите следующие параметры:
+  "host": "de-pg-cr-af",
+  "user": "jovyan",
+  "password": "jovyan"
+  "port": 5432,
+  "ssl": false,
+  "database": "de"
+ 
+Airflow доступен по адресу http://localhost:3000/airflow. Параметры доступа:
+login: AirflowAdmin
+password: airflow_pass 
